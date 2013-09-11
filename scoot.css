@@ -19,6 +19,9 @@ ul li{
 .scoot, .noscoot{
   opacity: 0.0;
 }
+.scoot:hover>div:not(:first-of-type), .noscoot:hover>div:not(:first-of-type){
+	display: none;
+}
 li div{
   width: 100%;
 }
@@ -28,7 +31,7 @@ img{
   padding: 0;
   border: 0px solid #fff;
 }
-.scoot div:first-child { 
+.scoot div:not(:last-child) { 
   position: absolute;
   left: 0;
   right: 0;
@@ -39,6 +42,6 @@ li img {
   width: 100%;
   height: auto;
 }
-.scoot div:nth-child(2){ 
+.scoot div:last-child{ 
   position: relative;
 }
