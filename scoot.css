@@ -1,0 +1,44 @@
+/* example stylesheet to go with the javascript. As it is, it creates a 4x grid of list items, each of which contains
+  *one or more div containers. <li class=".noscoot"> items contain one div(:last-child) container that is an image and possibly
+  *another div before it with a hidden :hover message.  .scoot's div:last-child also contains an image. It will scoot aside
+  *to reveal div:nth-last-child(2)'s content (presumably a link). Another div can be added in front (first-child), which
+  *will reveal upon hover.
+  */
+ul {
+	list-style: none;
+	width: 100%;
+}
+ul li{
+	display: inline-block;
+	width: 24%;
+	margin: 0.24%;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+}
+.scoot, .noscoot{
+  opacity: 0.0;
+}
+li div{
+  width: 100%;
+}
+
+img{
+  margin: 0;
+  padding: 0;
+  border: 0px solid #fff;
+}
+.scoot div:first-child { 
+  position: absolute;
+  left: 0;
+  right: 0;
+  vertical-align: middle;
+  text-align: center;
+}
+li img {
+  width: 100%;
+  height: auto;
+}
+.scoot div:nth-child(2){ 
+  position: relative;
+}
