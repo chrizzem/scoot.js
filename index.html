@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>example html|scoot.js</title>
+  <link rel='stylesheet' href='scoot.css' type='text/css'/>
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script type='text/javascript' src='scoot.js'></script>
+</head>
+<body>
+<ul>
+<li class="scoot" name="first"  style="background: #aa1111;">
+<a href="#" class="link" style="background: #aa2222;">the other link</a>
+<div><img src="http://upload.wikimedia.org/wikipedia/commons/a/a8/Tango-Show-Buenos-Aires-01.jpg" /></div></li>
+<li class="noscoot"><div><img src="http://upload.wikimedia.org/wikipedia/commons/9/92/Rocknroll-dancing-somersault-worldgames2005.jpg" /></div></li>
+<li class="noscoot"  style="background: #6666ff;"><div class="hover" style="background: #7777ff;">some hover text</div>
+<div><img src="http://upload.wikimedia.org/wikipedia/commons/a/a8/Tango-Show-Buenos-Aires-01.jpg" /></div></li>
+<li class="noscoot"><div><img src="http://upload.wikimedia.org/wikipedia/commons/9/92/Rocknroll-dancing-somersault-worldgames2005.jpg" /></div></li>
+<li class="scoot" name="second" style="background: #11aa11;"><a href="#" class="link"  style="background: #22aa22;">the link</a>
+<div class="hover"  style="background: #33aa33;">some hover text</div>
+<div><img src="http://upload.wikimedia.org/wikipedia/commons/9/92/Rocknroll-dancing-somersault-worldgames2005.jpg" /></div></li>
+<li class="noscoot"><div><img src="http://upload.wikimedia.org/wikipedia/commons/a/a8/Tango-Show-Buenos-Aires-01.jpg" /></div></li>
+<li class="noscoot"><div><img src="http://upload.wikimedia.org/wikipedia/commons/9/92/Rocknroll-dancing-somersault-worldgames2005.jpg" /></div></li>
+<li class="noscoot"><div><img src="http://upload.wikimedia.org/wikipedia/commons/a/a8/Tango-Show-Buenos-Aires-01.jpg" /></div></li>
+</ul>
+       
+ <script type="text/javascript">
+ /*calling the functions from the scoot.js file */
+$('li.noscoot>div:last-child>img').load(function(){  // on load of the images that don't move, fade them in and set a hover.
+    var thisImage=$(this);
+    scootSize(thisImage);
+    thisImage.parents('.noscoot').animate({opacity:1},300);
+  });
+       
+/*fades in images under .scoot after load and then slides them to reveal a link underneath */
+$('li.scoot>div:last-child>img').load(function(){
+console.log('visible...!');
+  var thisImage=$(this);
+  scootSize(thisImage);
+  thisImage.parents('.scoot').animate({opacity:1},300);
+  scootIt(thisImage);
+
+});
+
+$(window).resize(function(){ //fluid sites fixarooni
+   console.log('resized!');
+   $('li.noscoot>div:last-child>img').each(function(){scootSize($(this));});
+   $('li.scoot>div:last-child>img').each(function(){scootSize($(this));});
+  });
+  
+  </script>
+  </body>
+
+</html>
