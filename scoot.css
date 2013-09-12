@@ -5,24 +5,29 @@
   *will reveal upon hover.
   */
 ul {
-	list-style: none;
-	width: 100%;
+list-style: none;
+width: 100%;
 }
 ul li{
-	display: inline-block;
-	width: 24%;
-	margin: 0.24%;
-	padding: 0;
-	overflow: hidden;
-	position: relative;
+display: inline-block;
+width: 24%;
+margin: 0.24%;
+padding: 0;
+overflow: hidden;
+position: relative;
+}
+ul li a{display: block;}
+.hover{
+display: none;
 }
 .scoot, .noscoot{
   opacity: 0.0;
 }
-.scoot:hover>div:not(:first-of-type), .noscoot:hover>div:not(:first-of-type){
-	display: none;
+.scoot:hover .hover, .noscoot:hover .hover{
+display: block;
 }
-li div{
+
+li div, li a{
   width: 100%;
 }
 
@@ -31,17 +36,16 @@ img{
   padding: 0;
   border: 0px solid #fff;
 }
-.scoot div:not(:last-child) { 
+.scoot div:not(:last-child), .noscoot div:not(:last-child), .link, .hover {
   position: absolute;
   left: 0;
   right: 0;
-  vertical-align: middle;
   text-align: center;
 }
 li img {
   width: 100%;
   height: auto;
 }
-.scoot div:last-child{ 
+.scoot div:last-child{
   position: relative;
 }
